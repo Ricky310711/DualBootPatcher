@@ -546,6 +546,20 @@ void PatcherConfig::Impl::loadDefaultDevices()
         "/dev/block/mmcblk0p8" // tz
     });
     devices.push_back(device);
+    
+    // LG L70
+    device = new Device();
+    device->setId("lgl70");
+    device->setCodenames({ "d320", });
+    device->setName("LG L70);
+    device->setBlockDevBaseDirs({ QCOM_BASE_DIR });
+    device->setSystemBlockDevs({ QCOM_SYSTEM, "/dev/block/platform/msm_sdcc.1/byname/system" });
+    device->setCacheBlockDevs({ QCOM_CACHE, "/dev/block/platform/msm_sdcc.1/byname/cache" });
+    device->setDataBlockDevs({ QCOM_USERDATA, "/dev/block/platform/msm_sdcc.1/byname/userdata" });
+    device->setBootBlockDevs({ QCOM_BOOT, "/dev/block/platform/msm_sdcc.1/byname/boot" });
+    device->setRecoveryBlockDevs({ QCOM_RECOVERY });
+    device->setExtraBlockDevs({ QCOM_ABOOT, QCOM_MODEM });
+    devices.push_back(device);
 
     // LG G2
     device = new Device();
